@@ -1,3 +1,6 @@
+postpro_config.cfg
+source/config
+
 *.py[cod]
 
 # C extensions

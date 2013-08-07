@@ -19,7 +19,7 @@
 
 @purpose:  TBD
 
-@author: Christian KohlÃ¶ffel
+@author: Christian Kohlöffel
 @since:  26.12.2009
 @license: GPL
 """
@@ -37,12 +37,13 @@ import Core.constants as c
 import Core.Globals as g
 from d2gexceptions import *
 
-from PyQt4 import QtCore
+from PyQt4 import QtGui, QtCore
+
 
 import logging
 logger = logging.getLogger("Core.Config")
 
-CONFIG_VERSION = "5"
+CONFIG_VERSION = "6"
 """
 version tag - increment this each time you edit CONFIG_SPEC
 

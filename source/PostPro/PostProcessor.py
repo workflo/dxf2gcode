@@ -295,14 +295,13 @@ class MyPostProcessor(QtCore.QObject):
         @return: The Function returns the begin of the new string to be 
         exported.
         """
+        exstr = ''
         if self.vars.General["output_type"] == 'g-code':
-            exstr = self.tr("(Generated with: %s, Version: %s, Date: %s)\n") % (c.APPNAME, c.VERSION, c.DATE)
-            exstr += self.tr("(Time: %s)\n") % time.asctime()
-            exstr += self.tr("(Created from file: %s)\n") % load_filename
+            if self.vars.General["comments"]:
+                exstr = self.tr("(Generated with: %s, Version: %s, Date: %s)\n") % (c.APPNAME, c.VERSION, c.DATE)
+                exstr += self.tr("(Time: %s)\n") % time.asctime()
+                exstr += self.tr("(Created from file: %s)\n") % load_filename
         elif self.vars.General["output_type"] == 'dxf':
-            exstr = ''
-            
-        else:
             exstr = ''
                         
         exstr = (exstr.encode("utf-8"))
@@ -516,7 +515,10 @@ class MyPostProcessor(QtCore.QObject):
         @return: Returns the comment 
         """
         self.comment=comment
-        return self.make_print_str(self.vars.Program["comment"])   
+        if self.vars.General["comments"]:        
+            return self.make_print_str(self.vars.Program["comment"])   
+	else:
+	    return ''
 
     def make_print_str(self, keystr):
         """

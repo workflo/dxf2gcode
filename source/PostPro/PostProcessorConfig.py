@@ -51,6 +51,7 @@ POSTPRO_SPEC = str('''
     output_format = string(default=".ngx")
     output_text = string(default="G-CODE for EMC2")
     output_type = string(default="g-code")
+    comments = boolean(default=False)
     
     abs_export = boolean(default=True)
     cancel_cc_for_depth = boolean(default=False)
@@ -63,7 +64,7 @@ POSTPRO_SPEC = str('''
     code_end=string(default="M2 (Prgram end)")
     
     [Number_Format]
-    pre_decimals = integer(default=4)
+    pre_decimals = integer(default=1)
     post_decimals = integer(default=3)
     decimal_seperator = string(default=".")
     pre_decimal_zero_padding = boolean(default=False)
@@ -89,7 +90,7 @@ POSTPRO_SPEC = str('''
     cutter_comp_right = string(default=G42%nl)
     pre_shape_cut= string(default=M3 M8%nl)
     post_shape_cut=string(default=M9 M5%nl)
-    comment = string(default=%nl(%comment)%nl)              
+    comment = string(default=%nl(%comment)%nl)
 
 ''').splitlines()  
 """ format, type and default value specification of the global config file"""
