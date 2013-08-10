@@ -308,7 +308,8 @@ class MyPostProcessor(QtCore.QObject):
          
         # In addition the text defined in the PostProcessor Config file is 
         # added.
-        exstr += ("%s\n" % self.vars.General["code_begin"])
+        if self.vars.General["code_begin"] != '':
+            exstr += ("%s\n" % self.vars.General["code_begin"])
         
         return exstr
 
